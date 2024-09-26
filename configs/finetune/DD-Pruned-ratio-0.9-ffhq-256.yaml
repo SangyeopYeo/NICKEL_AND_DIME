@@ -1,0 +1,39 @@
+outdir: 
+num_gpus: 4 # number of GPUs
+snap:  # snapshot interval
+metrics: ["fid50k_full"]
+random_seed: 0
+
+data:  # dataset path
+cond: # Train conditional model based on dataset labels [default: false] <bool>
+subset: # None: all
+mirror: True # apply x-flip: <bool>
+
+cfg: paper256 # auto, stylegan2, paper256, paper512, paper1024, cifar
+gamma: # 
+kimg: 40000 #
+batch: #
+
+aug: noaug # None (ada), noaug, fixed
+p:  # Specify p for "fixed" (required): <float>
+target: # 
+augpipe: #
+
+resume: # weight path for resuming
+freezed: #
+
+fp32: #
+nhwc: #
+allow_tf32: #
+nobench: #
+workers: #
+
+teacher_ckpt:  # dense model path
+student_ckpt: 
+global_features_ckpt: 
+kd_percept_mode: LPIPS # [LPIPS | VGG]
+kd_percept_lambda: 3.0
+kd_l1_mode: Output_Only # [Output_Only, Intermediate]
+kd_l1_lambda: 3.0
+
+pruning_ratio: 0.9 # None: 0.0 (dense)
